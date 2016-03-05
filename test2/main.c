@@ -61,7 +61,7 @@ void scope6() {
 }
 
 void A() {
-  printf("A\n");
+  //printf("A\n");
 }
 
 void B() {
