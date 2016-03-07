@@ -31,14 +31,12 @@ public class PiPair {
 			} else if(args_length > 2){
 				System.err.println("Error: Wrong parameter input.");
 			}
-			
 		}
 		
 		System.out.println("support = " + support);
 		System.out.println("confidence = " + confidence);
 		
 		readFile();
-		
 		findBug(support, confidence);
 		
 		return;
@@ -71,7 +69,6 @@ public class PiPair {
 		File file = new File("C:" + File.separator + "input.txt");
 		Scanner scanner = new Scanner(file);
 		
-		
 		String pattern_caller = "Call.*'(.*)'.*";
 		Pattern p_caller = Pattern.compile(pattern_caller);
 		Matcher m_caller = null;
@@ -100,7 +97,6 @@ public class PiPair {
 					if(m_callee.matches()){
 						add_key = m_callee.group(1);
 						if(!stringset.contains(add_key)){
-							
 							addToMap(add_key, add_value);
 							stringset.add(add_key);
 						}
