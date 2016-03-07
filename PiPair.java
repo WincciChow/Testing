@@ -13,10 +13,10 @@ public class PiPair {
 	
 	/* record function(s) called by it(their) caller(s) as value in HashMap pipair, 
 	 * use HashSet to eliminate duplicate functions */
-	static HashSet<String> stringset = new HashSet<String>();
+	public static HashSet<String> stringset = new HashSet<String>();
 	
 	/* record function(s) called by it(their) caller(s) as one value-key set */
-	static HashMap<HashSet<String>, HashSet<String>> pipair = new HashMap<HashSet<String>, HashSet<String>>();
+	public static HashMap<HashSet<String>, HashSet<String>> pipair = new HashMap<HashSet<String>, HashSet<String>>();
 	
 	public static void main(String [] args) throws Exception{
 		
