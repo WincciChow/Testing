@@ -48,7 +48,7 @@ public class PiPair {
 
 	static void readFile() throws IOException{
 		
-		Scanner scanner = new Scanner(System.in);
+		//Scanner scanner = new Scanner(System.in);
 		
 		// test 1 input data:
 		String note = "Call graph node <<null function>><<0x12f5f210>>  #uses=0\n"
@@ -67,7 +67,7 @@ public class PiPair {
 				+ "CS<0x12f67d70> calls function 'printf'\n"
 				+ "CS<0x12f67e10> calls function 'printf'\n";
 		
-		//Scanner scanner = new Scanner(note);
+		Scanner scanner = new Scanner(note);
 		
 		// test 2:
 		//File file = new File("C:" + File.separator + "input.txt");
