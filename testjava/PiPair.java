@@ -1,21 +1,26 @@
+package pipair;
+
 import java.util.Scanner;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.HashSet;
+import java.util.HashMap;
 import java.io.File;
 import java.io.IOException;
 import java.text.NumberFormat;
-import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
+
 
 public class PiPair {
 	
 	/* record function(s) called by it(their) caller(s) as value in HashMap pipair, 
 	 * use HashSet to eliminate duplicate functions */
-	public static HashSet<String> stringset = new HashSet<String>();
+	public static Set<String> stringset = new HashSet<String>();
 	
 	/* record function(s) called by it(their) caller(s) as one value-key set */
-	public static HashMap<HashSet<String>, HashSet<String>> pipair = new HashMap<HashSet<String>, HashSet<String>>();
+	public static Map<HashSet<String>, HashSet<String>> pipair = new HashMap<HashSet<String>, HashSet<String>>();
 	
 	public static void main(String [] args) throws Exception{
 		
@@ -43,7 +48,7 @@ public class PiPair {
 
 	static void readFile() throws IOException{
 		
-		Scanner scanner = new Scanner(System.in);
+		//Scanner scanner = new Scanner(System.in);
 		
 		// test 1 input data:
 		String note = "Call graph node <<null function>><<0x12f5f210>>  #uses=0\n"
@@ -65,8 +70,8 @@ public class PiPair {
 		//Scanner scanner = new Scanner(note);
 		
 		// test 2:
-		//File file = new File("C:" + File.separator + "input.txt");
-		//Scanner scanner = new Scanner(file);
+		File file = new File("C:" + File.separator + "input.txt");
+		Scanner scanner = new Scanner(file);
 		
 		String pattern_caller = "Call.*'(.*)'.*";
 		Pattern p_caller = Pattern.compile(pattern_caller);
@@ -155,7 +160,7 @@ public class PiPair {
 		//Iterator<E> entries = pipair.entrySet().iterator();
 		//while(entries.hasNext())
 			
-		for(HashMap.Entry<HashSet<String>, HashSet<String>> entry : pipair.entrySet()){
+		for(Map.Entry<HashSet<String>, HashSet<String>> entry : pipair.entrySet()){
 			HashSet<String> key = entry.getKey();
 			HashSet<String> value = entry.getValue();
 			int key_count = key.size();
@@ -198,7 +203,7 @@ public class PiPair {
 								bug_pair = bug_pair.replaceAll("\\]", ")");
 								System.out.println("bug: " + key_single + " in "+ s 
 									+ ", pair: " + bug_pair
-									+ ", support: " + Integer.toString(value_pair)
+									+ ", support: " + value_pair
 									+ ", confidence: " + NumberFormat.getPercentInstance().format(confi)
 									);
 							}	
