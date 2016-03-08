@@ -185,7 +185,7 @@ public class PiPair {
 			key_single = key_single.replaceAll("\\]", "");
 			
 			if(value_single >= support){
-				for(HashMap.Entry<HashSet<String>, Integer> entry_pair : pipair_pair.entrySet()){
+				for(Map.Entry<HashSet<String>, Integer> entry_pair : pipair_pair.entrySet()){
 					int value_pair = entry_pair.getValue();
 					HashSet<String> key_pair = entry_pair.getKey();
 					float confi = (float)value_pair / value_single;
