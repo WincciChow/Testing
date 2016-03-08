@@ -48,7 +48,7 @@ public class PiPair {
 
 	static void readFile() throws IOException{
 		
-		//Scanner scanner = new Scanner(System.in);
+		Scanner scanner = new Scanner(System.in);
 		
 		// test 1 input data:
 		String note = "Call graph node <<null function>><<0x12f5f210>>  #uses=0\n"
@@ -70,8 +70,8 @@ public class PiPair {
 		//Scanner scanner = new Scanner(note);
 		
 		// test 2:
-		File file = new File("C:" + File.separator + "input.txt");
-		Scanner scanner = new Scanner(file);
+		//File file = new File("C:" + File.separator + "input.txt");
+		//Scanner scanner = new Scanner(file);
 		
 		String pattern_caller = "Call.*'(.*)'.*";
 		Pattern p_caller = Pattern.compile(pattern_caller);
