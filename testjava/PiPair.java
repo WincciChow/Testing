@@ -177,7 +177,7 @@ public class PiPair {
 		//System.out.println("pipair_single: " + pipair_single.toString());
 		//System.out.println("pipair_pair: " + pipair_pair.toString());
 		
-		for(HashMap.Entry<HashSet<String>, Integer> entry_single : pipair_single.entrySet()){
+		for(Map.Entry<HashSet<String>, Integer> entry_single : pipair_single.entrySet()){
 			int value_single = entry_single.getValue();
 			HashSet<String> key_s = entry_single.getKey();
 			String key_single = key_s.toString();
