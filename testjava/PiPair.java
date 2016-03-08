@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.IOException;
 import java.text.NumberFormat;
 import java.util.HashMap;
+import java.util.Iterator;
 
 public class PiPair {
 	
