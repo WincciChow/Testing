@@ -1,22 +1,26 @@
 
 
 import java.util.Scanner;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.HashSet;
+import java.util.HashMap;
 import java.io.File;
 import java.io.IOException;
 import java.text.NumberFormat;
-import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
 
 public class PiPair {
 	
 	/* record function(s) called by it(their) caller(s) as value in HashMap pipair, 
 	 * use HashSet to eliminate duplicate functions */
-	public static HashSet<String> stringset = new HashSet<String>();
+	public static Set<String> stringset = new HashSet<String>();
 	
 	/* record function(s) called by it(their) caller(s) as one value-key set */
-	public static HashMap<HashSet<String>, HashSet<String>> pipair = new HashMap<HashSet<String>, HashSet<String>>();
+	public static Map<HashSet<String>, HashSet<String>> pipair = new HashMap<HashSet<String>, HashSet<String>>();
 	
 	public static void main(String [] args) throws Exception{
 		
@@ -156,7 +160,7 @@ public class PiPair {
 		//Iterator<E> entries = pipair.entrySet().iterator();
 		//while(entries.hasNext())
 			
-		for(HashMap.Entry<HashSet<String>, HashSet<String>> entry : pipair.entrySet()){
+		for(Map.Entry<HashSet<String>, HashSet<String>> entry : pipair.entrySet()){
 			HashSet<String> key = entry.getKey();
 			HashSet<String> value = entry.getValue();
 			int key_count = key.size();
@@ -173,7 +177,7 @@ public class PiPair {
 		//System.out.println("pipair_single: " + pipair_single.toString());
 		//System.out.println("pipair_pair: " + pipair_pair.toString());
 		
-		for(HashMap.Entry<HashSet<String>, Integer> entry_single : pipair_single.entrySet()){
+		for(Map.Entry<HashSet<String>, Integer> entry_single : pipair_single.entrySet()){
 			int value_single = entry_single.getValue();
 			HashSet<String> key_s = entry_single.getKey();
 			String key_single = key_s.toString();
@@ -181,7 +185,7 @@ public class PiPair {
 			key_single = key_single.replaceAll("\\]", "");
 			
 			if(value_single >= support){
-				for(HashMap.Entry<HashSet<String>, Integer> entry_pair : pipair_pair.entrySet()){
+				for(Map.Entry<HashSet<String>, Integer> entry_pair : pipair_pair.entrySet()){
 					int value_pair = entry_pair.getValue();
 					HashSet<String> key_pair = entry_pair.getKey();
 					float confi = (float)value_pair / value_single;
@@ -199,7 +203,7 @@ public class PiPair {
 								bug_pair = bug_pair.replaceAll("\\]", ")");
 								System.out.println("bug: " + key_single + " in "+ s 
 									+ ", pair: " + bug_pair
-									+ ", support: " + Integer.toString(value_pair)
+									+ ", support: " + value_pair
 									+ ", confidence: " + NumberFormat.getPercentInstance().format(confi)
 									);
 							}	
