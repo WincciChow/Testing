@@ -1,10 +1,21 @@
-all: build
+BIN = ./bin
+JC = javac
+JFLAGS = -d $(BIN)
+	
+CLASSES = \
+	PiPair.java
 
-build:
-	chmod +x clean.sh
-	chmod +x timeout.sh
-	chmod +x pipair 
-	javac PiPair.java
+CLASS_FILES=$(CLASSES:%.java=$(BIN)/%.class)
+	
+all: classes
 
-clean: 
-	rm -rf *class *o 
+classes:
+	mkdir -p $(BIN)
+	chmod +x pipair
+	$(JC) $(JFLAGS) $(CLASSES) 
+	
+clean:
+	rm $(BIN)/*.class
+	
+run:
+	./pipair
