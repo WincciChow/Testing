@@ -38,7 +38,6 @@ public class PiPair {
 		}
 		/* read callgraph file into profram and store in map */
 		readFile();
-		
 		findBug(support, confidence);
 		
 		return;
