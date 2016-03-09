@@ -1,2 +1,2 @@
-Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 1
-	at PiPair.main(PiPair.java:32)
+support = 3
+confidence = 0.65

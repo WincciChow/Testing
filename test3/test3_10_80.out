@@ -1,20 +1,9 @@
-Error: Wrong parameter input.
 support = 10
-confidence = 0.65
+confidence = 0.8
 bug: apr_thread_mutex_unlock in apr_global_mutex_trylock, pair: (apr_thread_mutex_unlock, apr_thread_mutex_lock), support: 43, confidence: 91%
 bug: apr_thread_mutex_unlock in apr_global_mutex_unlock, pair: (apr_thread_mutex_unlock, apr_thread_mutex_lock), support: 43, confidence: 91%
 bug: apr_thread_mutex_unlock in apu_dso_mutex_unlock, pair: (apr_thread_mutex_unlock, apr_thread_mutex_lock), support: 43, confidence: 91%
 bug: apr_thread_mutex_unlock in apr_dbd_mutex_unlock, pair: (apr_thread_mutex_unlock, apr_thread_mutex_lock), support: 43, confidence: 91%
-bug: apr_array_push in ap_add_per_dir_conf, pair: (apr_array_push, apr_array_make), support: 40, confidence: 80%
-bug: apr_array_push in apr_xml_insert_uri, pair: (apr_array_push, apr_array_make), support: 40, confidence: 80%
-bug: apr_array_push in ap_file_walk, pair: (apr_array_push, apr_array_make), support: 40, confidence: 80%
-bug: apr_array_push in ap_copy_method_list, pair: (apr_array_push, apr_array_make), support: 40, confidence: 80%
-bug: apr_array_push in ap_add_file_conf, pair: (apr_array_push, apr_array_make), support: 40, confidence: 80%
-bug: apr_array_push in set_server_alias, pair: (apr_array_push, apr_array_make), support: 40, confidence: 80%
-bug: apr_array_push in ap_location_walk, pair: (apr_array_push, apr_array_make), support: 40, confidence: 80%
-bug: apr_array_push in ap_method_list_add, pair: (apr_array_push, apr_array_make), support: 40, confidence: 80%
-bug: apr_array_push in ap_add_per_url_conf, pair: (apr_array_push, apr_array_make), support: 40, confidence: 80%
-bug: apr_array_push in ap_directory_walk, pair: (apr_array_push, apr_array_make), support: 40, confidence: 80%
 bug: apr_thread_mutex_lock in apu_dso_mutex_lock, pair: (apr_thread_mutex_unlock, apr_thread_mutex_lock), support: 43, confidence: 96%
 bug: apr_thread_mutex_lock in apr_dbd_mutex_lock, pair: (apr_thread_mutex_unlock, apr_thread_mutex_lock), support: 43, confidence: 96%
 bug: apr_array_make in ap_init_virtual_host, pair: (apr_array_push, apr_array_make), support: 40, confidence: 87%
