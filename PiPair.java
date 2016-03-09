@@ -4,12 +4,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.HashSet;
 import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.io.File;
 import java.io.IOException;
 import java.text.NumberFormat;
-import java.util.Iterator;
 import java.util.Map;
-
 
 public class PiPair {
 	
