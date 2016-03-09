@@ -37,8 +37,8 @@ public class PiPair {
 			}
 		}
 		
-		System.out.println("support = " + support);
-		System.out.println("confidence = " + confidence);
+		//System.out.println("support = " + support);
+		//System.out.println("confidence = " + confidence);
 		
 		readFile();
 		findBug(support, confidence);
