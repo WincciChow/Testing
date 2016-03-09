@@ -202,10 +202,15 @@ public class PiPair {
 								String bug_pair = key_pair.toString();
 								bug_pair = bug_pair.replaceAll("\\[", "(");
 								bug_pair = bug_pair.replaceAll("\\]", ")");
+								
+								NumberFormat fmt = NumberFormat.getPercentInstance();
+								fmt.setMinimumFractionDigits(2);
+								fmt.setMaximumFractionDigits(2);
+								
 								System.out.println("bug: " + key_single + " in "+ s 
 									+ ", pair: " + bug_pair
 									+ ", support: " + value_pair
-									+ ", confidence: " + NumberFormat.getPercentInstance().format(confi)
+									+ ", confidence: " + fmt.format(confi)
 									);
 							}	
 						}
