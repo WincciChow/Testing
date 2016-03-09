@@ -1,5 +1,3 @@
-
-
 import java.util.Scanner;
 import java.util.Set;
 import java.util.regex.Matcher;
@@ -11,7 +9,6 @@ import java.io.IOException;
 import java.text.NumberFormat;
 import java.util.Iterator;
 import java.util.Map;
-
 
 public class PiPair {
 	
@@ -48,31 +45,7 @@ public class PiPair {
 	static void readFile() throws IOException{
 		
 		Scanner scanner = new Scanner(System.in);
-		
-		// test 1 input data:
-		/*
-		String note = "Call graph node <<null function>><<0x12f5f210>>  #uses=0\n"
-				+ "CS<0x0> calls function 'main'\n"
-				+ "CS<0x0> calls function 'printf'\n"
-				+ "CS<0x0> calls function 'A'\n"
-				+ "\n"
-				+ "Call graph node for function: 'main'<<0x12f63f80>>  #uses=1\n"
-				+ "CS<0x12f61058> calls function 'A'\n"
-				+ "CS<0x12f5efb0> calls function 'printf'\n"
-				+ "\n"
-				+ "Call graph node for function: 'printf'<<0x12f62f50>>  #uses=4\n"
-				+ "CS<0x0> calls external node\n"
-				+ "\n"
-				+ "Call graph node for function: 'A'<<0x12f62eb0>>  #uses=2\n"
-				+ "CS<0x12f67d70> calls function 'printf'\n"
-				+ "CS<0x12f67e10> calls function 'printf'\n";
-		*/
-		//Scanner scanner = new Scanner(note);
-		
-		// test 2:
-		//File file = new File("C:" + File.separator + "input.txt");
-		//Scanner scanner = new Scanner(file);
-		
+	
 		String pattern_caller = "Call.*'(.*)'.*";
 		Pattern p_caller = Pattern.compile(pattern_caller);
 		Matcher m_caller = null;
