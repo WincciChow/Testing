@@ -25,7 +25,7 @@ public class PiPair {
 	public static void main(String [] args) throws Exception{
 		
 		int support = 3;
-		float confidence = 0.65;
+		float confidence = (float)0.65;
 		
 		int args_length = args.length;
 		if(args_length >= 1){
