@@ -15,11 +15,11 @@ import java.util.Map;
 
 public class PiPair {
 	
-	/* record function(s) called by it(their) caller(s) as value in HashMap pipair, 
+	/* store function(s) called by it(their) caller(s) as value in HashMap pipair, 
 	 * use HashSet to eliminate duplicate functions */
 	public static Set<String> stringset = new HashSet<String>();
 	
-	/* record function(s) called by it(their) caller(s) as one value-key set */
+	/* record function(s) and it(their) caller(s) as key-value set in Map*/
 	public static Map<HashSet<String>, HashSet<String>> pipair = new HashMap<HashSet<String>, HashSet<String>>();
 	
 	public static void main(String [] args) throws Exception{
@@ -36,11 +36,9 @@ public class PiPair {
 				System.err.println("Error: Wrong parameter input.");
 			}
 		}
-		
-		//System.out.println("support = " + support);
-		//System.out.println("confidence = " + confidence);
-		
+		/* read callgraph file into profram and store in map */
 		readFile();
+		
 		findBug(support, confidence);
 		
 		return;
@@ -51,6 +49,7 @@ public class PiPair {
 		Scanner scanner = new Scanner(System.in);
 		
 		// test 1 input data:
+		/*
 		String note = "Call graph node <<null function>><<0x12f5f210>>  #uses=0\n"
 				+ "CS<0x0> calls function 'main'\n"
 				+ "CS<0x0> calls function 'printf'\n"
@@ -66,7 +65,7 @@ public class PiPair {
 				+ "Call graph node for function: 'A'<<0x12f62eb0>>  #uses=2\n"
 				+ "CS<0x12f67d70> calls function 'printf'\n"
 				+ "CS<0x12f67e10> calls function 'printf'\n";
-		
+		*/
 		//Scanner scanner = new Scanner(note);
 		
 		// test 2:
@@ -118,9 +117,9 @@ public class PiPair {
 		
 		HashSet<String> map_value = null;
 		HashSet<String> map_key = new HashSet<String>();
- 		map_key.add(add_key);
 		
  		/* map_key only has one element */
+ 		map_key.add(add_key);
  		if(pipair.containsKey(map_key)){
 			map_value = pipair.get(map_key);
 		} else{
@@ -151,15 +150,13 @@ public class PiPair {
 	
 	static void findBug(int support, float confidence){
 		
-		/* value is the number of elements in pipair's value, 
-		 * two HashMap separate pipairs whose keys include one or two elements*/
-		
+		/*  two HashMap separate pipairs whose keys include one element and two, 
+		 *  key is the same as that in pipair,
+		 *  value is the number of elements of the corresponding value in pipair */
 		HashMap<HashSet<String>, Integer> pipair_single = new HashMap<HashSet<String>, Integer>();
 		HashMap<HashSet<String>, Integer> pipair_pair = new HashMap<HashSet<String>, Integer>();
 		
-		//Iterator<E> entries = pipair.entrySet().iterator();
-		//while(entries.hasNext())
-			
+		/* construct pipair_single and pipair_pair from pipair */
 		for(Map.Entry<HashSet<String>, HashSet<String>> entry : pipair.entrySet()){
 			HashSet<String> key = entry.getKey();
 			HashSet<String> value = entry.getValue();
@@ -177,6 +174,11 @@ public class PiPair {
 		//System.out.println("pipair_single: " + pipair_single.toString());
 		//System.out.println("pipair_pair: " + pipair_pair.toString());
 		
+		/*  key_pair<HashSet<String>> -> value_pair<Integer>,
+		 *  key_single<String> -> value_single<Integer>  
+		 * 
+		 *  key_pair<HashSet<String>> -> pair<HashSet<String>>, 
+		 *  key_single<String> -> single<HashSet<String>> */
 		for(Map.Entry<HashSet<String>, Integer> entry_single : pipair_single.entrySet()){
 			int value_single = entry_single.getValue();
 			HashSet<String> key_s = entry_single.getKey();
