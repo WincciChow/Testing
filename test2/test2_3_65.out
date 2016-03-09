@@ -1,3 +1,5 @@
-Picked up JAVA_TOOL_OPTIONS: -Xmx64m
-Error occurred during initialization of VM
-Incompatible minimum and maximum heap sizes specified
+Exception in thread "main" java.lang.NumberFormatException: For input string: "test2.bc"
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Integer.parseInt(Integer.java:492)
+	at java.lang.Integer.parseInt(Integer.java:527)
+	at PiPair.main(PiPair.java:32)
