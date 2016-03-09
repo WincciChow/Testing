@@ -175,16 +175,18 @@ public class PiPair {
 						for(String s:single){
 							if(!pair.contains(s)){
 								/* printing bug */
-								String bug_pair = key_pair.toString();
-								bug_pair = bug_pair.replaceAll("\\[", "(");
-								bug_pair = bug_pair.replaceAll("\\]", ")");
+								ArrayList<String> bug_pair_sort = new ArrayList<String>();
+								for(String str:key_pair){
+									bug_pair_sort.add(str);
+								}
+								Collections.sort(bug_pair_sort);
 								
 								NumberFormat fmt = NumberFormat.getPercentInstance();
 								fmt.setMinimumFractionDigits(2);
 								fmt.setMaximumFractionDigits(2);
 								
 								System.out.println("bug: " + key_single + " in "+ s 
-									+ ", pair: " + bug_pair
+									+ ", pair: " + bug_pair_sort
 									+ ", support: " + value_pair
 									+ ", confidence: " + fmt.format(confi)
 									);
