@@ -28,17 +28,17 @@ public class PiPair {
 		float confidence = (float)0.65;
 		
 		int args_length = args.length;
-		if(args_length >= 1){
-			support = Integer.parseInt(args[0]);
-			if(args_length == 2){
-				confidence = Float.parseFloat(args[1])/100;
-			} else if(args_length > 2){
+		if(args_length >= 2){
+			support = Integer.parseInt(args[1]);
+			if(args_length == 3){
+				confidence = Float.parseFloat(args[2])/100;
+			} else if(args_length > 3){
 				System.err.println("Error: Wrong parameter input.");
 			}
 		}
 		
-		System.out.println("support = " + support);
-		System.out.println("confidence = " + confidence);
+		//System.out.println("support = " + support);
+		//System.out.println("confidence = " + confidence);
 		
 		readFile();
 		findBug(support, confidence);
