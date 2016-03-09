@@ -27,15 +27,17 @@ public class PiPair {
 		int support = 3;
 		float confidence = (float)0.65;
 		
-		int args_length = args.length;
-		if(args_length >= 2){
-			support = Integer.parseInt(args[1]);
-			if(args_length == 3){
+		switch(args.length){
+			case 1: break;
+			case 3: 
+				support = Integer.parseInt(args[1]);
 				confidence = Float.parseFloat(args[2])/100;
-			} else if(args_length > 3){
-				System.err.println("Error: Wrong parameter input.");
-			}
+				break;
+			default:
+				System.err.println("Error: Wrong arguments input.");
+                System.exit(1);
 		}
+		
 		/* read callgraph file into profram and store in map */
 		readFile();
 		findBug(support, confidence);
