@@ -1,5 +1,3 @@
-support = 10
-confidence = 0.8
 bug: apr_thread_mutex_unlock in apr_global_mutex_trylock, pair: (apr_thread_mutex_unlock, apr_thread_mutex_lock), support: 43, confidence: 91%
 bug: apr_thread_mutex_unlock in apr_global_mutex_unlock, pair: (apr_thread_mutex_unlock, apr_thread_mutex_lock), support: 43, confidence: 91%
 bug: apr_thread_mutex_unlock in apu_dso_mutex_unlock, pair: (apr_thread_mutex_unlock, apr_thread_mutex_lock), support: 43, confidence: 91%
