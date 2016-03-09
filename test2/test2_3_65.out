@@ -1,5 +1,2 @@
-Exception in thread "main" java.lang.NumberFormatException: For input string: "test2.bc"
-	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
-	at java.lang.Integer.parseInt(Integer.java:492)
-	at java.lang.Integer.parseInt(Integer.java:527)
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 1
 	at PiPair.main(PiPair.java:32)
