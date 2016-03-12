@@ -43,7 +43,7 @@ public class PiPair {
 		return;
 	}
 
-	static void readFile() throws IOException{
+	public static void readFile() throws IOException{
 		
 		Scanner scanner = new Scanner(System.in);
 	
@@ -88,7 +88,7 @@ public class PiPair {
 		return;
 	}
 	
-	static void addToMap(String add_key, String add_value){
+	public static void addToMap(String add_key, String add_value){
 		
 		HashSet<String> map_value = null;
 		HashSet<String> map_key = new HashSet<String>();
@@ -123,7 +123,7 @@ public class PiPair {
 		return;
 	}
 	
-	static void findBug(int support, float confidence){
+	public static void findBug(int support, float confidence){
 		
 		/*  two HashMap separate pipairs whose keys include one element and two, 
 		 *  key is the same as that in pipair,
