@@ -45,7 +45,7 @@ public class PiPair {
 
 	public static void readFile() throws IOException{
 		
-		Scanner scanner = new Scanner(System.in);
+		Scanner scanner = new Scanner(File.separator + "graphoutput.txt");
 	
 		String pattern_caller = "Call.*'(.*)'.*";
 		Pattern p_caller = Pattern.compile(pattern_caller);
